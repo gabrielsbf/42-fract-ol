@@ -1,17 +1,13 @@
 #include "../includes/fractol.h"
 
+int	key_handler(int var_k)
+
 int main()
 {
-	void	*mlx;
-	void	*mlx_win;
-	void	*img;
+	t_img_inst *win_inst;
 
-	(void)mlx_win;
-	(void)img;
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Changed");
-	img = mlx_new_image(mlx, 1920, 1080);
-	mlx_destroy_window()
-
+	win_inst->mlx = mlx_init();
+	win_inst->window = mlx_new_window(win_inst->mlx, 1920, 1080, "fractol");
+	mlx_key_hook(win_inst->window, );
 	mlx_loop(mlx);
 }
