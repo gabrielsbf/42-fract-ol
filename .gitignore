@@ -1,1 +1,4 @@
 minilibx/
+libft/*.a
+libft/build/
+/build/
