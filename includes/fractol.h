@@ -61,6 +61,6 @@ int		make_fractal(t_fractol *fractol, char *type, float c1, float c2);
 void	calculate_julia(t_fractol *fractol);
 int		key_handler(int key_code, t_fractol *fractol);
 int		mouse_handler(int mouse_code, int x, int y, t_fractol *fractol);
-void	print_error_msg();
+void	print_error_msg(void);
 void	zoom(t_fractol *fractol, int x, int y, int zoom);
 #endif

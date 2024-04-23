@@ -29,9 +29,9 @@ void	start_mlx_att(t_fractol *fractol)
 	fractol->window = mlx_new_window(fractol->mlx, SIZE, SIZE, "fractol");
 	fractol->image = mlx_new_image(fractol->mlx, SIZE, SIZE);
 	fractol->img_adr = mlx_get_data_addr(fractol->image,
-										&fractol->bits_per_pixel,
-										&fractol->size_line,
-										&fractol->endian);
+			&fractol->bits_per_pixel,
+			&fractol->size_line,
+			&fractol->endian);
 }
 
 int	destroy_fractol(t_fractol *fractol)
@@ -43,5 +43,5 @@ int	destroy_fractol(t_fractol *fractol)
 	free(fractol);
 	ft_printf("destroy was called\n");
 	exit(1);
-	return(0);
+	return (0);
 }

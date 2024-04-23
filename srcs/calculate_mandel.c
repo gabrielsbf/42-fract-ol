@@ -12,7 +12,6 @@
 
 #include "../includes/fractol.h"
 
-
 void	draw_mandelbrot(t_fractol *fractol)
 {
 	fractol->x = 0;

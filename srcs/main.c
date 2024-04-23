@@ -37,9 +37,9 @@ void	initiate_basic_instance(t_fractol *fractol, char *args[], int argc)
 
 int	make_fractal(t_fractol *fractol, char *type, float c1, float c2)
 {
-	if (ft_strncmp(type, "mandelbrot", 10) == 0)
+	if (ft_strncmp(type, "mandelbrot", 11) == 0)
 		draw_mandelbrot(fractol);
-	else if (ft_strncmp(type, "julia", 5) == 0)
+	else if (ft_strncmp(type, "julia", 6) == 0)
 	{
 		fractol->cx = c1;
 		fractol->cy = c2;
@@ -52,16 +52,17 @@ int	make_fractal(t_fractol *fractol, char *type, float c1, float c2)
 		return (1);
 	}
 	mlx_put_image_to_window(fractol->mlx, fractol->window, fractol->image,
-	0 , 0);
+		0, 0);
 	return (0);
 }
 
-void	print_error_msg()
+void	print_error_msg(void)
 {
-		ft_putendl_fd("format : ./fractol <fractal set>", 1);
-		ft_putendl_fd("avalilable sets : mandelbrot | julia", 1);
-		ft_putendl_fd("julia set : ./fractol julia (<julia_c1> <julia_c2>){optional}", 1);
-		ft_putendl_fd("recommended values for c1 and c2 : between -1.5 and 1.5",
+	ft_putendl_fd("format : ./fractol <fractal set>", 1);
+	ft_putendl_fd("avalilable sets : mandelbrot | julia", 1);
+	ft_putendl_fd("julia set : ./fractol julia (<julia_c1> <julia_c2>){opt}",
+		1);
+	ft_putendl_fd("recommended values for c1 and c2 : between -1.5 and 1.5",
 		1);
 }
 
@@ -69,13 +70,17 @@ int	main(int argc, char *argv[])
 {
 	t_fractol	*fractol;
 
-
 	if (argc == 2 || argc == 4)
 	{
+		if (ft_strncmp(argv[1], "mandelbrot", 11) != 0
+			&& ft_strncmp(argv[1], "julia", 6) != 0)
+		{
+			print_error_msg();
+			return (0);
+		}
 		fractol = malloc(sizeof(t_fractol));
 		initiate_basic_instance(fractol, argv, argc);
 	}
-
 	if (argc < 2 || argc > 4)
 	{
 		print_error_msg();
@@ -84,5 +89,3 @@ int	main(int argc, char *argv[])
 	mlx_loop(fractol->mlx);
 	return (0);
 }
-
-

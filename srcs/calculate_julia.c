@@ -28,7 +28,6 @@ void	draw_julia(t_fractol *fractol)
 	}
 }
 
-
 void	calculate_julia(t_fractol *fractol)
 {
 	int		i;
